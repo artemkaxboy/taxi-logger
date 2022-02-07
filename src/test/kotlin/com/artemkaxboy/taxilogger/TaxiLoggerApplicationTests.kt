@@ -6,6 +6,7 @@ import org.springframework.boot.test.context.SpringBootTest
 @SpringBootTest
 class TaxiLoggerApplicationTests {
 
+    @Suppress("EmptyMethod") // supposed to be empty
     @Test
     fun contextLoads() {
     }
