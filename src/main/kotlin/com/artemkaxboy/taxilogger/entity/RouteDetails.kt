@@ -20,5 +20,5 @@ data class RouteDetails(
 ) {
 
     val speed
-        get() = distance.toDouble() / 1000 / duration.toHours()
+        get() = distance.toDouble() / 1000 / (duration.toSeconds().toDouble() / 3600)
 }
