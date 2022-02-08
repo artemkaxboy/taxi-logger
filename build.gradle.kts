@@ -95,6 +95,20 @@ jib {
     val sourceUrl: String by project
     val refName: String by project
 
+    from {
+        platforms {
+            platform {
+                architecture = "amd64"
+                os = "linux"
+            }
+
+            platform {
+                architecture = "arm64"
+                os = "linux"
+            }
+        }
+    }
+
     container {
         user = "999:999"
         creationTime = lastCommitTime
