@@ -30,11 +30,15 @@ class YandexService(
     }
 
     private fun fetchRide(rideParams: RideParams) =
-        restTemplate.getForObject(
-            yandexApiProperties.getUri(),
-            RideYandexDto::class.java,
-            yandexApiProperties.getParamsMap(rideParams.route),
-        )
+        runCatching {
+            restTemplate.getForObject(
+                yandexApiProperties.getUri(),
+                RideYandexDto::class.java,
+                yandexApiProperties.getParamsMap(rideParams.route),
+            )
+        }
+            .onFailure { logger.warn { "Cannot fetch ride for [$rideParams]: $it" } }
+            .getOrNull()
 
     private fun getCheapestOption(ride: RideYandexDto?) =
         ride?.options?.minByOrNull { it.price }
