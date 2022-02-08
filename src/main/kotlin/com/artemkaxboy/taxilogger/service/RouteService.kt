@@ -2,7 +2,10 @@ package com.artemkaxboy.taxilogger.service
 
 import com.artemkaxboy.taxilogger.entity.Route
 import com.artemkaxboy.taxilogger.repository.RouteRepository
+import mu.KotlinLogging
 import org.springframework.stereotype.Service
+
+private val logger = KotlinLogging.logger {}
 
 @Service
 class RouteService(
@@ -15,4 +18,5 @@ class RouteService(
     }
 
     fun getRoutes(): List<Route> = routeRepository.findAll()
+        .onEach { logger.debug { "Route loaded $it" } }
 }

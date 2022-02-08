@@ -13,6 +13,9 @@ import javax.validation.constraints.NotBlank
 const val CLIENT_ID_PARAM_NAME = "clid"
 const val COORDINATE_PARAM_NAME = "rll"
 
+/**
+ * Properties of yandex taxi API: https://yandex.ru/dev/taxi/doc/dg/concepts/trip-info.html#trip-info
+ */
 @ConstructorBinding
 @ConfigurationProperties(prefix = "yandex.api")
 @Validated
@@ -49,4 +52,4 @@ class YandexApiProperties(
 }
 
 fun getCoordinateParamValue(from: Position, to: Position) =
-    "${from.latitude},${from.longitude}~${to.latitude},${to.longitude}"
+    "${from.longitude},${from.latitude}~${to.longitude},${to.latitude}"
