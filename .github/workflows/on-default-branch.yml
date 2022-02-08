@@ -4,7 +4,7 @@ name: Default branch build
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
 
