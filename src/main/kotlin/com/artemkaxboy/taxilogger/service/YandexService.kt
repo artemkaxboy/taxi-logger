@@ -21,7 +21,7 @@ class YandexService(
     @Cacheable("ride")
     fun getRideDetails(rideParams: RideParams): Ride? {
 
-        logger.info { "Get ride $rideParams" }
+        logger.debug { "Get ride $rideParams" }
 
         val ride = fetchRide(rideParams) ?: return null
         val cheapest = getCheapestOption(ride) ?: return null
