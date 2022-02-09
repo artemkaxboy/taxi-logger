@@ -11,6 +11,10 @@ plugins {
     id("com.google.cloud.tools.jib") version "3.0.0"
     /*-------------------------------- JIB -----------------------------------------------*/
 
+    /*-------------------------------- kapt ----------------------------------------------*/
+    kotlin("kapt") version "1.6.10"
+    /*-------------------------------- kapt ----------------------------------------------*/
+
 }
 
 group = "com.artemkaxboy"
@@ -61,6 +65,10 @@ dependencies {
     implementation("org.springdoc:springdoc-openapi-data-rest:1.6.5")
     implementation("org.springdoc:springdoc-openapi-ui:1.6.5")
     implementation("org.springdoc:springdoc-openapi-kotlin:1.6.5")
+
+    //	Annotation processing
+    compileOnly("org.springframework.boot:spring-boot-configuration-processor")
+    kapt("org.springframework.boot:spring-boot-configuration-processor")
 }
 
 dependencyManagement {
